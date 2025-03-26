@@ -9,7 +9,7 @@ class Streamer():
     def __init__(self):
         self.baseurl = "https://api.stocktwits.com/api/2/"
         self.headers = {
-            'Authorization': '',
+            
             'Content-Type': 'application/json'}
 
     def get_user_msgs(self, user_id, since=0, max=0, limit=0, callback=None, filter=None):
@@ -31,11 +31,13 @@ class Streamer():
                               (Optional)
 
         Return:
-            raw_json (dict) = The JSON output unparsed
+            raw_json (dict) = The JSON oupytput unparsed
 
         """
 
         url = self.baseurl + 'streams/user/' + user_id + '.json'
+        print(url)
+
 
         data = {
                  'since': '{}'.format(since),
@@ -78,7 +80,7 @@ class Streamer():
         '''
 
         url = self.baseurl + 'streams/symbol/' + symbol_id + '.json'
-
+        print(url)
         data = {
                  'since': '{}'.format(since),
                  'max': '{}'.format(max),

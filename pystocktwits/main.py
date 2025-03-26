@@ -15,7 +15,9 @@ def main():
     try:
         
         if (args.type == "user"):
+            
             user_json = stream.get_user_msgs(user_id=args.id)
+           
             print(user_json)
         elif(args.type == "symbol"):
             symbol_json = stream.get_symbol_msgs(symbol_id=args.id)
