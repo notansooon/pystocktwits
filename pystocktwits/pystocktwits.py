@@ -7,8 +7,10 @@ import requests
 class Streamer():
 
     def __init__(self):
-        self.url = "https://api.stocktwits.com/api/2/"
-        self.headers = {'Content-Type': 'application/json'}
+        self.baseurl = "https://api.stocktwits.com/api/2/"
+        self.headers = {
+            'Authorization': '',
+            'Content-Type': 'application/json'}
 
     def get_user_msgs(self, user_id, since=0, max=0, limit=0, callback=None, filter=None):
 
@@ -33,7 +35,7 @@ class Streamer():
 
         """
 
-        url = self.url + 'streams/user/' + user_id + '.json'
+        url = self.baseurl + 'streams/user/' + user_id + '.json'
 
         data = {
                  'since': '{}'.format(since),
@@ -75,7 +77,7 @@ class Streamer():
 
         '''
 
-        url = self.url + 'streams/symbol/' + symbol_id + '.json'
+        url = self.baseurl + 'streams/symbol/' + symbol_id + '.json'
 
         data = {
                  'since': '{}'.format(since),
@@ -115,7 +117,7 @@ class Streamer():
 
         '''
 
-        url = self.url + 'streams/conversation/' + conversation_id + '.json'
+        url = self.baseurl + 'streams/conversation/' + conversation_id + '.json'
 
         data = {
                  'since': '{}'.format(since),
